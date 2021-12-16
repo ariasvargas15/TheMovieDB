@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TheMovieDB.iml" filepath="$PROJECT_DIR$/.idea/modules/TheMovieDB.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TheMovieDB.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TheMovieDB.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/TheMovieDB.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/TheMovieDB.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/TheMovieDB.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/TheMovieDB.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/framework/TheMovieDB.framework.iml" filepath="$PROJECT_DIR$/.idea/modules/framework/TheMovieDB.framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/presentation/TheMovieDB.presentation.iml" filepath="$PROJECT_DIR$/.idea/modules/presentation/TheMovieDB.presentation.iml" />
     </modules>
   </component>
 </project>
