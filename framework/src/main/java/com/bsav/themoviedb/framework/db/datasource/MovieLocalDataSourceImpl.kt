@@ -11,7 +11,15 @@ class MovieLocalDataSourceImpl : MovieLocalDataSource {
         return flowOf(emptyList())
     }
 
+    override fun getTopRatedMovies(): Flow<List<Movie>> {
+        return flowOf(emptyList())
+    }
+
     override suspend fun savePopularMovies() {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun saveTopRatedMovies() {
         TODO("Not yet implemented")
     }
 }

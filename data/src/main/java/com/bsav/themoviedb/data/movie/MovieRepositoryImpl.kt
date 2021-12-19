@@ -33,4 +33,22 @@ class MovieRepositoryImpl(
             emit(response)
         }
     }
+
+    override fun getTopRatedMovies(): Flow<List<Movie>> {
+        return flow {
+            var response: List<Movie> = emptyList()
+            remoteDataSource.getTopRatedMovies()
+                .catch {
+                    localDataSource.getTopRatedMovies()
+                        .flowOn(dispatcher)
+                        .collect {
+                            response = it
+                        }
+                }.flowOn(dispatcher)
+                .collect {
+                    response = it
+                }
+            emit(response)
+        }
+    }
 }

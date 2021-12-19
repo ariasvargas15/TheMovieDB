@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
-    <string name="movies">Movies</string>
-    <string name="tv_shows">Tv Shows</string>
+    <string name="programs">New &amp; Hot</string>
     <string name="search">Search</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_popular_movies">Popular movies</string>
     <string name="title_top_rated_movies">Top rated movies</string>
 </resources>

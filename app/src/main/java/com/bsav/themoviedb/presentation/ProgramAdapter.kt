@@ -17,7 +17,6 @@ class ProgramAdapter(private val dataSet: List<Program> = emptyList()) : Recycle
                     textProgramName.text = title
                     textReleaseDate.text = releaseDate
                     imgPoster.loadImageFromPathWithBaseUrl(posterPath)
-                    shimmer.hideShimmer()
                 }
             }
         }

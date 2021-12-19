@@ -10,7 +10,13 @@ class MovieRemoteDataSourceImpl(private val service: PopularMoviesService) : Mov
 
     override fun getPopularMovies(): Flow<List<Movie>> {
         return flow {
-            emit(service.getPopularMovies(1).toDomain().results)
+            emit(service.getPopularMovies().mapToDomain())
+        }
+    }
+
+    override fun getTopRatedMovies(): Flow<List<Movie>> {
+        return flow {
+            emit(service.getTopRatedMovies().mapToDomain())
         }
     }
 }
