@@ -12,13 +12,7 @@ class ProgramAdapter(private val dataSet: List<Program> = emptyList()) : Recycle
 
     inner class ViewHolder(private val binding: ItemProgramBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(program: Program) {
-            with(program) {
-                binding.run {
-                    textProgramName.text = title
-                    textReleaseDate.text = releaseDate
-                    imgPoster.loadImageFromPathWithBaseUrl(posterPath)
-                }
-            }
+            binding.imgPoster.loadImageFromPathWithBaseUrl(program.posterPath)
         }
     }
 

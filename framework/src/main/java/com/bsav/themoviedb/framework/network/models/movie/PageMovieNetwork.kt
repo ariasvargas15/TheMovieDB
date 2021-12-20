@@ -1,6 +1,6 @@
 package com.bsav.themoviedb.framework.network.models.movie
 
-import com.bsav.themoviedb.domain.movie.Movie
+import com.bsav.themoviedb.domain.movie.model.Movie
 import com.google.gson.annotations.SerializedName
 
 data class PageMovieNetwork(

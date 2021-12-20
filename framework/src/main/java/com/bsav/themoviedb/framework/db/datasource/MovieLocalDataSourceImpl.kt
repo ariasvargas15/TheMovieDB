@@ -1,7 +1,7 @@
 package com.bsav.themoviedb.framework.db.datasource
 
 import com.bsav.themoviedb.data.movie.MovieLocalDataSource
-import com.bsav.themoviedb.domain.movie.Movie
+import com.bsav.themoviedb.domain.movie.model.Movie
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

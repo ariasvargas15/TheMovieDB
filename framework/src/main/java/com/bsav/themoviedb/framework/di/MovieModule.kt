@@ -3,10 +3,10 @@ package com.bsav.themoviedb.framework.di
 import com.bsav.themoviedb.data.movie.MovieLocalDataSource
 import com.bsav.themoviedb.data.movie.MovieRemoteDataSource
 import com.bsav.themoviedb.data.movie.MovieRepositoryImpl
-import com.bsav.themoviedb.domain.movie.usecases.MovieRepository
+import com.bsav.themoviedb.domain.movie.repository.MovieRepository
 import com.bsav.themoviedb.framework.db.datasource.MovieLocalDataSourceImpl
 import com.bsav.themoviedb.framework.network.datasource.MovieRemoteDataSourceImpl
-import com.bsav.themoviedb.framework.network.services.PopularMoviesService
+import com.bsav.themoviedb.framework.network.services.MovieService
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -20,8 +20,8 @@ class MovieModule {
 
     @Provides
     @Reusable
-    fun providesPopularMoviesService(retrofit: Retrofit): PopularMoviesService =
-        retrofit.create(PopularMoviesService::class.java)
+    fun providesPopularMoviesService(retrofit: Retrofit): MovieService =
+        retrofit.create(MovieService::class.java)
 
     @Provides
     @Reusable
@@ -30,7 +30,7 @@ class MovieModule {
 
     @Provides
     @Reusable
-    fun providesMovieRemoteDataSource(service: PopularMoviesService): MovieRemoteDataSource = MovieRemoteDataSourceImpl(service)
+    fun providesMovieRemoteDataSource(service: MovieService): MovieRemoteDataSource = MovieRemoteDataSourceImpl(service)
 
     @Provides
     @Reusable

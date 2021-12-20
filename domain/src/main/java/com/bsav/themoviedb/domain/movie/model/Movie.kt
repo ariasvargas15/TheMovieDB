@@ -1,4 +1,4 @@
-package com.bsav.themoviedb.domain.movie
+package com.bsav.themoviedb.domain.movie.model
 
 data class Movie(
     val adult: Boolean,

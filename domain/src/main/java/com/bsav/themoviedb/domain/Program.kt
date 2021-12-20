@@ -1,7 +1,7 @@
 package com.bsav.themoviedb.domain
 
 data class Program(
-    val backdropPath: String,
+    val backdropPath: String?,
     val id: Int,
     val originalTitle: String,
     val popularity: Double,

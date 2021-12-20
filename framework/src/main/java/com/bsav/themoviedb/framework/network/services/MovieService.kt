@@ -5,7 +5,7 @@ import com.bsav.themoviedb.framework.network.models.movie.PageMovieNetwork
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface PopularMoviesService {
+interface MovieService {
 
     @GET(ENDPOINT_POPULAR)
     suspend fun getPopularMovies(

@@ -25,16 +25,22 @@ class ProgramsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observeLiveData()
+        initializeObservers()
     }
 
-    private fun observeLiveData() {
+    private fun initializeObservers() {
         viewModel.run {
             popularMovies.observe(viewLifecycleOwner) {
                 loadPopularMovies(it)
             }
             topRatedMovies.observe(viewLifecycleOwner) {
                 loadTopRatedMovies(it)
+            }
+            popularTvShows.observe(viewLifecycleOwner) {
+                loadPopularTvShows(it)
+            }
+            topRatedTvShows.observe(viewLifecycleOwner) {
+                loadTopRatedTvShows(it)
             }
         }
     }
@@ -47,6 +53,16 @@ class ProgramsFragment : Fragment() {
     private fun loadTopRatedMovies(movies: List<Program>) {
         val adapter = ProgramAdapter(movies)
         binding.recyclerTopRatedMovies.adapter = adapter
+    }
+
+    private fun loadPopularTvShows(movies: List<Program>) {
+        val adapter = ProgramAdapter(movies)
+        binding.recyclerPopularTvShows.adapter = adapter
+    }
+
+    private fun loadTopRatedTvShows(movies: List<Program>) {
+        val adapter = ProgramAdapter(movies)
+        binding.recyclerTopRatedTvShows.adapter = adapter
     }
 
 }

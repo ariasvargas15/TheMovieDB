@@ -1,7 +1,7 @@
-package com.bsav.themoviedb.data.movie
+package com.bsav.themoviedb.data.tvshow
 
-import com.bsav.themoviedb.domain.movie.model.Movie
-import com.bsav.themoviedb.domain.movie.repository.MovieRepository
+import com.bsav.themoviedb.domain.tvshow.model.TvShow
+import com.bsav.themoviedb.domain.tvshow.repository.TvShowRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -10,18 +10,18 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class MovieRepositoryImpl(
-    private val localDataSource: MovieLocalDataSource,
-    private val remoteDataSource: MovieRemoteDataSource,
+class TvShowRepositoryImpl(
+    private val localDataSource: TvShowLocalDataSource,
+    private val remoteDataSource: TvShowRemoteDataSource,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
-) : MovieRepository {
+) : TvShowRepository {
 
-    override fun getPopularMovies(): Flow<List<Movie>> {
+    override fun getPopularTvShows(): Flow<List<TvShow>> {
         return flow {
-            var response: List<Movie> = emptyList()
-            remoteDataSource.getPopularMovies()
+            var response: List<TvShow> = emptyList()
+            remoteDataSource.getPopularTvShows()
                 .catch {
-                    localDataSource.getPopularMovies()
+                    localDataSource.getPopularTvShows()
                         .flowOn(dispatcher)
                         .collect {
                             response = it
@@ -34,12 +34,12 @@ class MovieRepositoryImpl(
         }
     }
 
-    override fun getTopRatedMovies(): Flow<List<Movie>> {
+    override fun getTopRatedTvShows(): Flow<List<TvShow>> {
         return flow {
-            var response: List<Movie> = emptyList()
-            remoteDataSource.getTopRatedMovies()
+            var response: List<TvShow> = emptyList()
+            remoteDataSource.getTopRatedTvShows()
                 .catch {
-                    localDataSource.getTopRatedMovies()
+                    localDataSource.getTopRatedTvShows()
                         .flowOn(dispatcher)
                         .collect {
                             response = it

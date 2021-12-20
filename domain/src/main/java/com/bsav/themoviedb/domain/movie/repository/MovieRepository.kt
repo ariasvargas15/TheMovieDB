@@ -1,6 +1,6 @@
-package com.bsav.themoviedb.domain.movie.usecases
+package com.bsav.themoviedb.domain.movie.repository
 
-import com.bsav.themoviedb.domain.movie.Movie
+import com.bsav.themoviedb.domain.movie.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {

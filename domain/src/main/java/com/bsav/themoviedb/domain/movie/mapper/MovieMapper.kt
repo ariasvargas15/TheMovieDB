@@ -1,10 +1,10 @@
-package com.bsav.themoviedb.domain.movie.mappers
+package com.bsav.themoviedb.domain.movie.mapper
 
 import com.bsav.themoviedb.domain.Program
-import com.bsav.themoviedb.domain.movie.Movie
+import com.bsav.themoviedb.domain.movie.model.Movie
 import javax.inject.Inject
 
-class ProgramMapper @Inject constructor() {
+class MovieMapper @Inject constructor() {
 
     fun movieToProgram(movie: Movie): Program {
         with(movie) {
