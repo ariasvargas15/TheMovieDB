@@ -5,6 +5,6 @@ import com.bsav.themoviedb.domain.tvshow.repository.TvShowRepository
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
-class GetPopularTvShowsUseCase @Inject constructor(private val tvShowRepository: TvShowRepository) {
+class GetPopularTvShows @Inject constructor(private val tvShowRepository: TvShowRepository) {
     operator fun invoke(): Flow<List<TvShow>> = tvShowRepository.getPopularTvShows()
 }

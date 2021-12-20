@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bsav.themoviedb.domain.Program
 import com.bsav.themoviedb.domain.movie.mapper.MovieMapper
-import com.bsav.themoviedb.domain.movie.usecases.GetPopularMoviesUseCase
-import com.bsav.themoviedb.domain.movie.usecases.GetTopRatedMoviesUseCase
+import com.bsav.themoviedb.domain.movie.usecases.GetPopularMovies
+import com.bsav.themoviedb.domain.movie.usecases.GetTopRatedMovies
+import com.bsav.themoviedb.domain.program.Program
 import com.bsav.themoviedb.domain.tvshow.mapper.TvShowMapper
-import com.bsav.themoviedb.domain.tvshow.usecases.GetPopularTvShowsUseCase
-import com.bsav.themoviedb.domain.tvshow.usecases.GetTopRatedTvShowsUseCase
+import com.bsav.themoviedb.domain.tvshow.usecases.GetPopularTvShows
+import com.bsav.themoviedb.domain.tvshow.usecases.GetTopRatedTvShows
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.async
@@ -21,10 +21,10 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class ProgramsViewModel @Inject constructor(
-    private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
-    private val getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase,
-    private val getPopularTvShowsUseCase: GetPopularTvShowsUseCase,
-    private val getTopRatedTvShowsUseCase: GetTopRatedTvShowsUseCase,
+    private val getPopularMoviesUseCase: GetPopularMovies,
+    private val getTopRatedMoviesUseCase: GetTopRatedMovies,
+    private val getPopularTvShowsUseCase: GetPopularTvShows,
+    private val getTopRatedTvShowsUseCase: GetTopRatedTvShows,
     private val movieMapper: MovieMapper,
     private val tvShowMapper: TvShowMapper,
 ) : ViewModel() {

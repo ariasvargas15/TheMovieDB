@@ -20,7 +20,7 @@ class TvShowModule {
 
     @Provides
     @Reusable
-    fun providesPopularTvShowsService(retrofit: Retrofit): TvShowService =
+    fun providesTvShowsService(retrofit: Retrofit): TvShowService =
         retrofit.create(TvShowService::class.java)
 
     @Provides

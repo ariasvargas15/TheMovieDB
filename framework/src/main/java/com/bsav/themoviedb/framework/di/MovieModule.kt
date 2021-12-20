@@ -20,7 +20,7 @@ class MovieModule {
 
     @Provides
     @Reusable
-    fun providesPopularMoviesService(retrofit: Retrofit): MovieService =
+    fun providesMoviesService(retrofit: Retrofit): MovieService =
         retrofit.create(MovieService::class.java)
 
     @Provides

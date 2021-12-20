@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bsav.themoviedb.databinding.ProgramsFragmentBinding
-import com.bsav.themoviedb.domain.Program
+import com.bsav.themoviedb.domain.program.Program
 import com.bsav.themoviedb.presentation.ProgramAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

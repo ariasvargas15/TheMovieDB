@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bsav.themoviedb.databinding.ItemProgramBinding
-import com.bsav.themoviedb.domain.Program
+import com.bsav.themoviedb.domain.program.Program
 import com.bsav.themoviedb.framework.helpers.loadImageFromPathWithBaseUrl
 
 
@@ -12,7 +12,9 @@ class ProgramAdapter(private val dataSet: List<Program> = emptyList()) : Recycle
 
     inner class ViewHolder(private val binding: ItemProgramBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(program: Program) {
-            binding.imgPoster.loadImageFromPathWithBaseUrl(program.posterPath)
+            program.posterPath?.let {
+                binding.imgPoster.loadImageFromPathWithBaseUrl(it)
+            }
         }
     }
 

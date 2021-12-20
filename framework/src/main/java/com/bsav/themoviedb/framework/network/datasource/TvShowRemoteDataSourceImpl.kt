@@ -17,7 +17,6 @@ class TvShowRemoteDataSourceImpl(private val service: TvShowService) : TvShowRem
     override fun getTopRatedTvShows(): Flow<List<TvShow>> {
         return flow {
             emit(service.getTopRatedTvShows().mapToDomain())
-
         }
     }
 }
