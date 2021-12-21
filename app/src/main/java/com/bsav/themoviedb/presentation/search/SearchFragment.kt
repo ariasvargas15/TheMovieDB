@@ -12,12 +12,13 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bsav.themoviedb.databinding.SearchFragmentBinding
 import com.bsav.themoviedb.domain.program.Program
+import com.bsav.themoviedb.presentation.OnClickProgram
 import com.bsav.themoviedb.presentation.ProgramAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), OnClickProgram {
 
     private val viewModel: SearchViewModel by viewModels()
     private lateinit var binding: SearchFragmentBinding
@@ -66,15 +67,21 @@ class SearchFragment : Fragment() {
     }
 
     private fun initializeObservers() {
-        viewModel.programs.observe(viewLifecycleOwner) {
-            loadPrograms(it)
-        }
+        viewModel.programs.observe(viewLifecycleOwner, this::loadPrograms)
     }
 
     private fun loadPrograms(movies: List<Program>) {
-        val adapter = ProgramAdapter(movies)
+        val adapter = ProgramAdapter(movies, this)
         binding.recyclerProgramsSearch.layoutManager = GridLayoutManager(requireContext(), requireContext().calculateNoOfColumns(160f))
         binding.recyclerProgramsSearch.adapter = adapter
+    }
+
+    override fun navigateToMovie(id: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToTvShow(id: Int) {
+        TODO("Not yet implemented")
     }
 
 }

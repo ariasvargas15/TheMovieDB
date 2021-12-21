@@ -37,5 +37,5 @@ class MovieModule {
     @Provides
     @Reusable
     fun providesMovieLocalDataSource(database: TheMovieDBDatabase, mapper: MovieMapper): MovieLocalDataSource =
-        MovieLocalDataSourceImpl(database.programDao(), mapper)
+        MovieLocalDataSourceImpl(database.programDao(), database.movieDao(), mapper)
 }

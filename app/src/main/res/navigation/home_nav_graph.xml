@@ -8,10 +8,23 @@
         android:id="@+id/programs_fragment"
         android:name="com.bsav.themoviedb.presentation.program.ProgramsFragment"
         android:label="programs_fragment"
-        tools:layout="@layout/programs_fragment" />
+        tools:layout="@layout/programs_fragment">
+        <action
+            android:id="@+id/action_programs_fragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+    </fragment>
     <fragment
         android:id="@+id/search_fragment"
         android:name="com.bsav.themoviedb.presentation.search.SearchFragment"
         android:label="search_fragment"
         tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.bsav.themoviedb.presentation.movie.MovieFragment"
+        android:label="movie_fragment"
+        tools:layout="@layout/movie_fragment">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

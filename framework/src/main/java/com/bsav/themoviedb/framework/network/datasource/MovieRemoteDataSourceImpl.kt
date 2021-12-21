@@ -14,15 +14,17 @@ class MovieRemoteDataSourceImpl(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : MovieRemoteDataSource {
 
-    override fun getPopularMovies(): Flow<List<Movie>> {
-        return flow {
-            emit(service.getPopularMovies().mapToDomain())
-        }.flowOn(dispatcher)
-    }
+    override fun getMovieById(id: Int): Flow<Movie> = flow {
+        emit(service.getMovieById(id).toDomain())
+    }.flowOn(dispatcher)
 
-    override fun getTopRatedMovies(): Flow<List<Movie>> {
-        return flow {
-            emit(service.getTopRatedMovies().mapToDomain())
-        }.flowOn(dispatcher)
-    }
+    override fun getPopularMovies(): Flow<List<Movie>> = flow {
+        emit(service.getPopularMovies().mapToDomain())
+    }.flowOn(dispatcher)
+
+
+    override fun getTopRatedMovies(): Flow<List<Movie>> = flow {
+        emit(service.getTopRatedMovies().mapToDomain())
+    }.flowOn(dispatcher)
+
 }
