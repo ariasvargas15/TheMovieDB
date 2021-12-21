@@ -39,6 +39,4 @@ class MovieFragment : Fragment() {
             textUserScore.text = movie.voteAverage.toString()
         }
     }
-
-
 }

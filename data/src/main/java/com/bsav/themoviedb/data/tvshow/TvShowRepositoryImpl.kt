@@ -13,6 +13,21 @@ class TvShowRepositoryImpl(
     private val remoteDataSource: TvShowRemoteDataSource
 ) : TvShowRepository {
 
+    override fun getTvShowById(id: Int): Flow<TvShow> {
+        return flow {
+            remoteDataSource.getTvShowById(id)
+                .catch {
+                    localDataSource.getTvShowById(id)
+                        .collect {
+                            emit(it)
+                        }
+                }.collect {
+                    localDataSource.saveTvShow(it)
+                    emit(it)
+                }
+        }
+    }
+
     override fun getPopularTvShows(): Flow<List<TvShow>> {
         return flow {
             var response: List<TvShow> = emptyList()

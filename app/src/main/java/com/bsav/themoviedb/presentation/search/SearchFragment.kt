@@ -9,11 +9,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bsav.themoviedb.databinding.SearchFragmentBinding
 import com.bsav.themoviedb.domain.program.Program
-import com.bsav.themoviedb.presentation.OnClickProgram
-import com.bsav.themoviedb.presentation.ProgramAdapter
+import com.bsav.themoviedb.presentation.program.OnClickProgram
+import com.bsav.themoviedb.presentation.program.ProgramAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -77,11 +78,13 @@ class SearchFragment : Fragment(), OnClickProgram {
     }
 
     override fun navigateToMovie(id: Int) {
-        TODO("Not yet implemented")
+        val action = SearchFragmentDirections.actionSearchFragmentToMovieFragment(id)
+        findNavController().navigate(action)
     }
 
     override fun navigateToTvShow(id: Int) {
-        TODO("Not yet implemented")
+        val action = SearchFragmentDirections.actionSearchFragmentToTvShowFragment(id)
+        findNavController().navigate(action)
     }
 
 }

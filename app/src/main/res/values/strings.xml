@@ -7,4 +7,6 @@
     <string name="title_popular_tv_shows">Popular Tv Shows</string>
     <string name="title_top_rated_tv_shows">Top rated Tv Shows</string>
     <string name="release_date">Release date:</string>
+    <string name="first_air_date">First air date:</string>
+    <string name="user_score">"User score: "</string>
 </resources>

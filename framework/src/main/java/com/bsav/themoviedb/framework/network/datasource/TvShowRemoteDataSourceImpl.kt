@@ -14,15 +14,17 @@ class TvShowRemoteDataSourceImpl(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : TvShowRemoteDataSource {
 
-    override fun getPopularTvShows(): Flow<List<TvShow>> {
-        return flow {
-            emit(service.getPopularTvShows().mapToDomain())
-        }.flowOn(dispatcher)
-    }
+    override fun getTvShowById(id: Int): Flow<TvShow> = flow {
+        emit(service.getTvShowById(id).mapTpDomain())
+    }.flowOn(dispatcher)
 
-    override fun getTopRatedTvShows(): Flow<List<TvShow>> {
-        return flow {
-            emit(service.getTopRatedTvShows().mapToDomain())
-        }.flowOn(dispatcher)
-    }
+    override fun getPopularTvShows(): Flow<List<TvShow>> = flow {
+        emit(service.getPopularTvShows().mapToDomain())
+    }.flowOn(dispatcher)
+
+
+    override fun getTopRatedTvShows(): Flow<List<TvShow>> = flow {
+        emit(service.getTopRatedTvShows().mapToDomain())
+    }.flowOn(dispatcher)
+
 }

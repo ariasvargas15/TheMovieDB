@@ -9,8 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bsav.themoviedb.databinding.ProgramsFragmentBinding
 import com.bsav.themoviedb.domain.program.Program
-import com.bsav.themoviedb.presentation.OnClickProgram
-import com.bsav.themoviedb.presentation.ProgramAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -69,7 +67,8 @@ class ProgramsFragment : Fragment(), OnClickProgram {
     }
 
     override fun navigateToTvShow(id: Int) {
-        TODO("Not yet implemented")
+        val action = ProgramsFragmentDirections.actionProgramsFragmentToTvShowFragment(id)
+        findNavController().navigate(action)
     }
 
 }

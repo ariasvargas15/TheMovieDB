@@ -11,13 +11,31 @@
         tools:layout="@layout/programs_fragment">
         <action
             android:id="@+id/action_programs_fragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
+            app:destination="@id/movieFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_programs_fragment_to_tvShowFragment"
+            app:destination="@id/tvShowFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/search_fragment"
         android:name="com.bsav.themoviedb.presentation.search.SearchFragment"
         android:label="search_fragment"
-        tools:layout="@layout/search_fragment" />
+        tools:layout="@layout/search_fragment">
+        <action
+            android:id="@+id/action_search_fragment_to_movieFragment"
+            app:destination="@id/movieFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_search_fragment_to_tvShowFragment"
+            app:destination="@id/tvShowFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/movieFragment"
         android:name="com.bsav.themoviedb.presentation.movie.MovieFragment"
@@ -25,6 +43,15 @@
         tools:layout="@layout/movie_fragment">
         <argument
             android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvShowFragment"
+        android:name="com.bsav.themoviedb.presentation.tvshow.TvShowFragment"
+        android:label="tv_show_fragment"
+        tools:layout="@layout/tv_show_fragment">
+        <argument
+            android:name="tvShowId"
             app:argType="integer" />
     </fragment>
 </navigation>

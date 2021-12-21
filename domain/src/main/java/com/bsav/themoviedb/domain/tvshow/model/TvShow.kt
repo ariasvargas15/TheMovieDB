@@ -3,10 +3,8 @@ package com.bsav.themoviedb.domain.tvshow.model
 data class TvShow(
     val backdropPath: String? = null,
     val firstAirDate: String? = null,
-    val genreIds: List<Int>? = null,
     val id: Int,
     val name: String,
-    val originCountry: List<String>? = null,
     val originalLanguage: String? = null,
     val originalName: String? = null,
     val overview: String? = null,

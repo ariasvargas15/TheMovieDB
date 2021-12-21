@@ -1,4 +1,4 @@
-package com.bsav.themoviedb.presentation
+package com.bsav.themoviedb.presentation.program
 
 import android.view.LayoutInflater
 import android.view.View

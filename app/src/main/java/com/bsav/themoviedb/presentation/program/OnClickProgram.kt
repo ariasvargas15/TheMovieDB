@@ -1,4 +1,4 @@
-package com.bsav.themoviedb.presentation
+package com.bsav.themoviedb.presentation.program
 
 interface OnClickProgram {
     fun navigateToMovie(id: Int)
