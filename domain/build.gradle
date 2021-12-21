@@ -11,4 +11,6 @@ java {
 dependencies {
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
     api 'javax.inject:javax.inject:1'
+    implementation 'junit:junit:4.13.2'
+    testImplementation "io.mockk:mockk:1.12.1"
 }
