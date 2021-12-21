@@ -9,5 +9,5 @@ data class PageMovieNetwork(
     @SerializedName("total_pages") val totalPages: Int,
     @SerializedName("total_results") val totalResults: Int
 ) {
-    fun mapToDomain(): List<Movie> = results.map { it.toDomain() }
+    fun mapToDomain(): List<Movie> = results.map { it.mapToDomain() }
 }

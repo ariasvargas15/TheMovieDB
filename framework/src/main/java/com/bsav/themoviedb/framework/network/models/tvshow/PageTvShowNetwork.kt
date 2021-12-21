@@ -9,5 +9,5 @@ data class PageTvShowNetwork(
     @SerializedName("total_pages") val totalPages: Int,
     @SerializedName("total_results") val totalResults: Int
 ) {
-    fun mapToDomain(): List<TvShow> = results.map { it.mapTpDomain() }
+    fun mapToDomain(): List<TvShow> = results.map { it.mapToDomain() }
 }

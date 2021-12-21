@@ -19,7 +19,7 @@ data class TvShowNetwork(
     @SerializedName("vote_average") val voteAverage: Double,
     @SerializedName("vote_count") val voteCount: Int
 ) {
-    fun mapTpDomain(): TvShow = TvShow(
+    fun mapToDomain(): TvShow = TvShow(
         backdropPath,
         firstAirDate,
         id,

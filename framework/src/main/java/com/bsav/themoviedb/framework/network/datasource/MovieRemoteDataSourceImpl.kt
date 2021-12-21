@@ -15,13 +15,12 @@ class MovieRemoteDataSourceImpl(
 ) : MovieRemoteDataSource {
 
     override fun getMovieById(id: Int): Flow<Movie> = flow {
-        emit(service.getMovieById(id).toDomain())
+        emit(service.getMovieById(id).mapToDomain())
     }.flowOn(dispatcher)
 
     override fun getPopularMovies(): Flow<List<Movie>> = flow {
         emit(service.getPopularMovies().mapToDomain())
     }.flowOn(dispatcher)
-
 
     override fun getTopRatedMovies(): Flow<List<Movie>> = flow {
         emit(service.getTopRatedMovies().mapToDomain())
