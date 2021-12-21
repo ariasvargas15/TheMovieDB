@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="TheMovieDB.app" target="11" />
+      <module name="TheMovieDB.framework" target="11" />
+      <module name="TheMovieDB.presentation" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
+    <string name="programs">New &amp; Hot</string>
+    <string name="search">Search</string>
+    <string name="title_popular_movies">Popular movies</string>
+    <string name="title_top_rated_movies">Top rated movies</string>
+    <string name="title_popular_tv_shows">Popular Tv Shows</string>
+    <string name="title_top_rated_tv_shows">Top rated Tv Shows</string>
 </resources>
