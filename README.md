@@ -3,6 +3,7 @@
 # TO BE DONE
  
  - Visualize video in movie/show detail for trailers and teasers
+ - Handle de gradle dependencies, add a dependencies file to centralize the dependencies
  - Improve the error handling, with personalized exceptions
  - App crashes in the search when there is no internet connection, Add a message to indicate there is no network
  - It crashes in the detail without internet too if the movie has not been visualized before, Add a message too
