@@ -15,13 +15,12 @@ class TvShowRemoteDataSourceImpl(
 ) : TvShowRemoteDataSource {
 
     override fun getTvShowById(id: Int): Flow<TvShow> = flow {
-        emit(service.getTvShowById(id).mapTpDomain())
+        emit(service.getTvShowById(id).mapToDomain())
     }.flowOn(dispatcher)
 
     override fun getPopularTvShows(): Flow<List<TvShow>> = flow {
         emit(service.getPopularTvShows().mapToDomain())
     }.flowOn(dispatcher)
-
 
     override fun getTopRatedTvShows(): Flow<List<TvShow>> = flow {
         emit(service.getTopRatedTvShows().mapToDomain())

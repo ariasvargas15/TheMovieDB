@@ -18,7 +18,7 @@ data class MovieNetwork(
     @SerializedName("vote_average") val voteAverage: Double,
     @SerializedName("vote_count") val voteCount: Int
 ) {
-    fun toDomain(): Movie = Movie(
+    fun mapToDomain(): Movie = Movie(
         adult,
         backdropPath,
         id,
