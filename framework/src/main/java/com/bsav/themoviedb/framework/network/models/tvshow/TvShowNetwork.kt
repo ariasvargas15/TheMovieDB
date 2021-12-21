@@ -2,7 +2,6 @@ package com.bsav.themoviedb.framework.network.models.tvshow
 
 import com.bsav.themoviedb.domain.tvshow.model.TvShow
 import com.google.gson.annotations.SerializedName
-import javax.annotation.Nullable
 
 data class TvShowNetwork(
     @SerializedName("backdrop_path") val backdropPath: String?,

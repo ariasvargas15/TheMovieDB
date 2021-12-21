@@ -28,9 +28,34 @@ class TvShowMapperTest {
             voteCount = 143
         )
 
-        val expected = Program(12345, "posterPath", ProgramType.TvShow)
+        val expected = Program(
+            id = 12345,
+            posterPath = "posterPath",
+            name = "The 100",
+            type = ProgramType.TvShow.TopRated
+        )
 
-        val response = mapper.tvShowToProgram(tvShow)
+        val response = mapper.tvShowToProgram(tvShow, ProgramType.TvShow.TopRated)
+
+        Assert.assertEquals(expected, response)
+    }
+
+    @Test
+    fun `given a program when programToTvShow is called then should map to TvShow`() {
+        val program = Program(
+            id = 12345,
+            name = "The 100",
+            posterPath = "posterPath",
+            type = ProgramType.Movie.Popular
+        )
+
+        val expected = TvShow(
+            id = 12345,
+            posterPath = "posterPath",
+            name = "The 100",
+        )
+
+        val response = mapper.programToTvShow(program)
 
         Assert.assertEquals(expected, response)
     }

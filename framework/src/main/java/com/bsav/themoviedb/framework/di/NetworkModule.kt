@@ -16,6 +16,7 @@ private const val BASE_URL = "https://api.themoviedb.org/3/"
 class NetworkModule {
 
     @Provides
+    @Reusable
     fun provideHttpClient(): OkHttpClient =
         OkHttpClient()
             .newBuilder()

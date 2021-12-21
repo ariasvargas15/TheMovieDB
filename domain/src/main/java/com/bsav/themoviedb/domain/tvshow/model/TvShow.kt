@@ -1,17 +1,17 @@
 package com.bsav.themoviedb.domain.tvshow.model
 
 data class TvShow(
-    val backdropPath: String?,
-    val firstAirDate: String,
-    val genreIds: List<Int>,
+    val backdropPath: String? = null,
+    val firstAirDate: String? = null,
+    val genreIds: List<Int>? = null,
     val id: Int,
     val name: String,
-    val originCountry: List<String>,
-    val originalLanguage: String,
-    val originalName: String,
-    val overview: String,
-    val popularity: Double,
-    val posterPath: String,
-    val voteAverage: Double,
-    val voteCount: Int
+    val originCountry: List<String>? = null,
+    val originalLanguage: String? = null,
+    val originalName: String? = null,
+    val overview: String? = null,
+    val popularity: Double? = null,
+    val posterPath: String? = null,
+    val voteAverage: Double? = null,
+    val voteCount: Int? = null
 )

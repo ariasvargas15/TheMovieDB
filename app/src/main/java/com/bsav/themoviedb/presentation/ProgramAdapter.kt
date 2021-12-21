@@ -1,6 +1,7 @@
 package com.bsav.themoviedb.presentation
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bsav.themoviedb.databinding.ItemProgramBinding
@@ -12,8 +13,13 @@ class ProgramAdapter(private val dataSet: List<Program> = emptyList()) : Recycle
 
     inner class ViewHolder(private val binding: ItemProgramBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(program: Program) {
-            program.posterPath?.let {
-                binding.imgPoster.loadImageFromPathWithBaseUrl(it)
+            with(binding) {
+                textPoster.text = program.name
+                program.posterPath?.let {
+                    imgPoster.loadImageFromPathWithBaseUrl(it)
+                } ?: {
+                    imgPoster.visibility = View.GONE
+                }
             }
         }
     }

@@ -20,6 +20,10 @@ class ProgramsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = ProgramsFragmentBinding.inflate(inflater, container, false)
         viewModel.getMovies()
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.getMovies()
+            binding.swipeRefresh.isRefreshing = false
+        }
         return binding.root
     }
 

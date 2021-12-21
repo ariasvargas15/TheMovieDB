@@ -3,7 +3,9 @@ package com.bsav.themoviedb.framework.di
 import com.bsav.themoviedb.data.movie.MovieLocalDataSource
 import com.bsav.themoviedb.data.movie.MovieRemoteDataSource
 import com.bsav.themoviedb.data.movie.MovieRepositoryImpl
+import com.bsav.themoviedb.domain.movie.mapper.MovieMapper
 import com.bsav.themoviedb.domain.movie.repository.MovieRepository
+import com.bsav.themoviedb.framework.db.TheMovieDBDatabase
 import com.bsav.themoviedb.framework.db.datasource.MovieLocalDataSourceImpl
 import com.bsav.themoviedb.framework.network.datasource.MovieRemoteDataSourceImpl
 import com.bsav.themoviedb.framework.network.services.MovieService
@@ -34,5 +36,6 @@ class MovieModule {
 
     @Provides
     @Reusable
-    fun providesMovieLocalDataSource(): MovieLocalDataSource = MovieLocalDataSourceImpl()
+    fun providesMovieLocalDataSource(database: TheMovieDBDatabase, mapper: MovieMapper): MovieLocalDataSource =
+        MovieLocalDataSourceImpl(database.programDao(), mapper)
 }

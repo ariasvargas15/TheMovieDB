@@ -8,6 +8,7 @@ import com.bsav.themoviedb.domain.movie.mapper.MovieMapper
 import com.bsav.themoviedb.domain.movie.usecases.GetPopularMovies
 import com.bsav.themoviedb.domain.movie.usecases.GetTopRatedMovies
 import com.bsav.themoviedb.domain.program.Program
+import com.bsav.themoviedb.domain.program.ProgramType
 import com.bsav.themoviedb.domain.tvshow.mapper.TvShowMapper
 import com.bsav.themoviedb.domain.tvshow.usecases.GetPopularTvShows
 import com.bsav.themoviedb.domain.tvshow.usecases.GetTopRatedTvShows
@@ -55,7 +56,7 @@ class ProgramsViewModel @Inject constructor(
     private suspend fun getPopularMovies() {
         getPopularMoviesUseCase().map {
             it.map { movie ->
-                movieMapper.movieToProgram(movie)
+                movieMapper.movieToProgram(movie, ProgramType.Movie.Popular)
             }
         }.collect {
             _popularMovies.value = it
@@ -65,7 +66,7 @@ class ProgramsViewModel @Inject constructor(
     private suspend fun getTopRatedMovies() {
         getTopRatedMoviesUseCase().map {
             it.map { movie ->
-                movieMapper.movieToProgram(movie)
+                movieMapper.movieToProgram(movie, ProgramType.Movie.TopRated)
             }
         }.collect {
             _topRatedMovies.value = it
@@ -75,7 +76,7 @@ class ProgramsViewModel @Inject constructor(
     private suspend fun getPopularTvShows() {
         getPopularTvShowsUseCase().map {
             it.map { tvShow ->
-                tvShowMapper.tvShowToProgram(tvShow)
+                tvShowMapper.tvShowToProgram(tvShow, ProgramType.TvShow.Popular)
             }
         }.collect {
             _popularTvShows.value = it
@@ -85,7 +86,7 @@ class ProgramsViewModel @Inject constructor(
     private suspend fun getTopRatedTvShows() {
         getTopRatedTvShowsUseCase().map {
             it.map { tvShow ->
-                tvShowMapper.tvShowToProgram(tvShow)
+                tvShowMapper.tvShowToProgram(tvShow, ProgramType.TvShow.TopRated)
             }
         }.collect {
             _topRatedTvShows.value = it
