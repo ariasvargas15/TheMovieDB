@@ -1,19 +1,16 @@
 package com.bsav.themoviedb.data.tvshow
 
+import com.bsav.themoviedb.domain.program.ProgramType
 import com.bsav.themoviedb.domain.tvshow.model.TvShow
 import com.bsav.themoviedb.domain.tvshow.repository.TvShowRepository
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 
 class TvShowRepositoryImpl(
     private val localDataSource: TvShowLocalDataSource,
-    private val remoteDataSource: TvShowRemoteDataSource,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val remoteDataSource: TvShowRemoteDataSource
 ) : TvShowRepository {
 
     override fun getPopularTvShows(): Flow<List<TvShow>> {
@@ -22,12 +19,12 @@ class TvShowRepositoryImpl(
             remoteDataSource.getPopularTvShows()
                 .catch {
                     localDataSource.getPopularTvShows()
-                        .flowOn(dispatcher)
                         .collect {
                             response = it
                         }
-                }.flowOn(dispatcher)
-                .collect {
+                }.collect {
+                    localDataSource.deleteTvShowsByType(ProgramType.TvShow.Popular)
+                    localDataSource.savePopularTvShows(it)
                     response = it
                 }
             emit(response)
@@ -40,12 +37,12 @@ class TvShowRepositoryImpl(
             remoteDataSource.getTopRatedTvShows()
                 .catch {
                     localDataSource.getTopRatedTvShows()
-                        .flowOn(dispatcher)
                         .collect {
                             response = it
                         }
-                }.flowOn(dispatcher)
-                .collect {
+                }.collect {
+                    localDataSource.deleteTvShowsByType(ProgramType.TvShow.TopRated)
+                    localDataSource.saveTopRatedTvShows(it)
                     response = it
                 }
             emit(response)

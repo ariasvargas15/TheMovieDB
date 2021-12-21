@@ -3,7 +3,9 @@ package com.bsav.themoviedb.framework.di
 import com.bsav.themoviedb.data.tvshow.TvShowLocalDataSource
 import com.bsav.themoviedb.data.tvshow.TvShowRemoteDataSource
 import com.bsav.themoviedb.data.tvshow.TvShowRepositoryImpl
+import com.bsav.themoviedb.domain.tvshow.mapper.TvShowMapper
 import com.bsav.themoviedb.domain.tvshow.repository.TvShowRepository
+import com.bsav.themoviedb.framework.db.TheMovieDBDatabase
 import com.bsav.themoviedb.framework.db.datasource.TvShowLocalDataSourceImpl
 import com.bsav.themoviedb.framework.network.datasource.TvShowRemoteDataSourceImpl
 import com.bsav.themoviedb.framework.network.services.TvShowService
@@ -34,5 +36,6 @@ class TvShowModule {
 
     @Provides
     @Reusable
-    fun providesTvShowLocalDataSource(): TvShowLocalDataSource = TvShowLocalDataSourceImpl()
+    fun providesTvShowLocalDataSource(database: TheMovieDBDatabase, mapper: TvShowMapper): TvShowLocalDataSource =
+        TvShowLocalDataSourceImpl(database.programDao(), mapper)
 }

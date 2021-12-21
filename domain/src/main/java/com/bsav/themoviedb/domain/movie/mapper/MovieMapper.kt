@@ -7,12 +7,23 @@ import javax.inject.Inject
 
 class MovieMapper @Inject constructor() {
 
-    fun movieToProgram(movie: Movie): Program {
+    fun movieToProgram(movie: Movie, type: ProgramType.Movie): Program {
         with(movie) {
             return Program(
                 id,
+                title,
                 posterPath,
-                ProgramType.Movie
+                type
+            )
+        }
+    }
+
+    fun programToMovie(program: Program): Movie {
+        with(program) {
+            return Movie(
+                id = id,
+                posterPath = posterPath,
+                title = name
             )
         }
     }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".presentation.search.SearchFragment">
 
     <SearchView
@@ -19,6 +20,7 @@
         android:id="@+id/recycler_programs_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foregroundGravity="center"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />

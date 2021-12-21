@@ -7,12 +7,23 @@ import javax.inject.Inject
 
 class TvShowMapper @Inject constructor() {
 
-    fun tvShowToProgram(tvShow: TvShow): Program {
+    fun tvShowToProgram(tvShow: TvShow, type: ProgramType.TvShow): Program {
         with(tvShow) {
             return Program(
                 id,
+                name,
                 posterPath,
-                ProgramType.TvShow
+                type
+            )
+        }
+    }
+
+    fun programToTvShow(program: Program): TvShow {
+        with(program) {
+            return TvShow(
+                id = id,
+                posterPath = posterPath,
+                name = name
             )
         }
     }

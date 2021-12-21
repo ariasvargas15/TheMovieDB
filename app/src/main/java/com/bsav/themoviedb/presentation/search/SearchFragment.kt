@@ -56,6 +56,8 @@ class SearchFragment : Fragment() {
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (newText.isNotBlank()) {
                         viewModel.searchProgram(newText)
+                    } else {
+                        binding.recyclerProgramsSearch.adapter = null
                     }
                     return false
                 }
