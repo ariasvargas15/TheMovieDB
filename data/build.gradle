@@ -10,4 +10,6 @@ java {
 
 dependencies {
     api project(':domain')
+    implementation 'junit:junit:4.13.2'
+    testImplementation "io.mockk:mockk:1.12.1"
 }
