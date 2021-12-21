@@ -15,10 +15,8 @@ class TvShowMapperTest {
         val tvShow = TvShow(
             backdropPath = "path",
             firstAirDate = "15-01-2020",
-            genreIds = emptyList(),
             id = 12345,
             name = "The 100",
-            originCountry = listOf("US"),
             originalLanguage = "US",
             originalName = "The 100",
             overview = "This is an amazing show",

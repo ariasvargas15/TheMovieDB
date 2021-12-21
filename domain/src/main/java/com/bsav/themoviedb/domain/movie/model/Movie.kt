@@ -3,7 +3,6 @@ package com.bsav.themoviedb.domain.movie.model
 data class Movie(
     val adult: Boolean? = null,
     val backdropPath: String? = null,
-    val genreIds: List<Int>? = null,
     val id: Int,
     val originalLanguage: String? = null,
     val originalTitle: String? = null,

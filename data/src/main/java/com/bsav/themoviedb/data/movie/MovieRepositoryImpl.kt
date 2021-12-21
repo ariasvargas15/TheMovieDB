@@ -13,6 +13,21 @@ class MovieRepositoryImpl(
     private val remoteDataSource: MovieRemoteDataSource
 ) : MovieRepository {
 
+    override fun getMovieById(id: Int): Flow<Movie> {
+        return flow {
+            remoteDataSource.getMovieById(id)
+                .catch {
+                    localDataSource.getMovieById(id)
+                        .collect {
+                            emit(it)
+                        }
+                }.collect {
+                    localDataSource.saveMovie(it)
+                    emit(it)
+                }
+        }
+    }
+
     override fun getPopularMovies(): Flow<List<Movie>> {
         return flow {
             var response: List<Movie> = emptyList()

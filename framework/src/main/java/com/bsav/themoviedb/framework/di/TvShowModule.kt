@@ -37,5 +37,5 @@ class TvShowModule {
     @Provides
     @Reusable
     fun providesTvShowLocalDataSource(database: TheMovieDBDatabase, mapper: TvShowMapper): TvShowLocalDataSource =
-        TvShowLocalDataSourceImpl(database.programDao(), mapper)
+        TvShowLocalDataSourceImpl(database.programDao(), database.tvShowDao(), mapper)
 }

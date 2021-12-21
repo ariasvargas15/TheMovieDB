@@ -16,7 +16,6 @@ class MovieMapperTest {
         val movie = Movie(
             adult = false,
             backdropPath = "path",
-            genreIds = emptyList(),
             id = 12345,
             originalLanguage = "US",
             originalTitle = "Spiderman",
