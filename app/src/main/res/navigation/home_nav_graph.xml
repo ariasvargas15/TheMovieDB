@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_nav_graph"
-    app:startDestination="@id/programs_fragment">
+    app:startDestination="@id/serieFragment">
     <fragment
         android:id="@+id/programs_fragment"
         android:name="com.bsav.themoviedb.presentation.program.ProgramsFragment"
@@ -54,4 +54,9 @@
             android:name="tvShowId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/serieFragment"
+        android:name="com.bsav.themoviedb.presentation.serie.SerieFragment"
+        android:label="serie_fragment"
+        tools:layout="@layout/serie_fragment" />
 </navigation>

@@ -36,6 +36,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_programs_fragment_to_tvShowFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -57,7 +62,24 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_search_fragment_to_tvShowFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="serieFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-607" />
+                            <option name="y" value="-361" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
